@@ -7,7 +7,7 @@ class MyThemeData {
   static ThemeData lightTheme = ThemeData(
       scaffoldBackgroundColor: Colors.transparent,
       appBarTheme: const AppBarTheme(
-        iconTheme: IconThemeData(color:colorBlack),
+        iconTheme: IconThemeData(color: colorBlack),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
@@ -16,8 +16,11 @@ class MyThemeData {
         fontSize: 30,
         fontWeight: FontWeight.bold,
         color: colorBlack,
-      )),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      ),
+        subtitle1: TextStyle(color:colorGold,fontSize:24,fontWeight: FontWeight.bold)
+      ),
+
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: colorGold,
           selectedItemColor: colorBlack,
           unselectedItemColor: Colors.white));

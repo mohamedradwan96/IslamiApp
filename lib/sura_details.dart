@@ -25,5 +25,6 @@ static const String routName ="SuraDetails";
 }
  class SuraDetailsArgs {
   String suraName;
-  SuraDetailsArgs(this.suraName);
+  int index;
+  SuraDetailsArgs(this.suraName,this.index);
  }

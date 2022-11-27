@@ -31,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
             centerTitle: true,
           ),
           bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
             onTap: (index) {
               currentIndex = index;
               setState(() {});
@@ -38,21 +39,23 @@ class _HomeScreenState extends State<HomeScreen> {
             currentIndex: currentIndex,
             items: const [
               BottomNavigationBarItem(
+                icon: ImageIcon(AssetImage('assets/images/quran.png')),
+                label: "قرآن",
+              ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(AssetImage('assets/images/sebha.png')),
+                label: "سبحة",
+              ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(AssetImage('assets/images/ahadeth.png')),
+                label: "أحاديث",
+              ),
+              BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('assets/images/radio.png')),
                   label: "راديو",
-                  backgroundColor: MyThemeData.colorGold),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/images/sebha.png')),
-                  label: "سبحة",
-                  backgroundColor: MyThemeData.colorGold),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/images/ahadeth.png')),
-                  label: "أحاديث",
-                  backgroundColor: MyThemeData.colorGold),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/images/quran.png')),
-                  label: "قرآن",
-                  backgroundColor: MyThemeData.colorGold),
+                  ),
+
+
             ],
           ),
           body: tabs[currentIndex],
@@ -62,9 +65,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> tabs = [
-     RadioScreen(),
+    QuranScreen(),
      SebhaScreen(),
      AhadethScreen(),
-     QuranScreen()
+    RadioScreen(),
+
   ];
 }
