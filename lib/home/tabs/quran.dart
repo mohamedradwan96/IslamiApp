@@ -20,13 +20,13 @@ class QuranScreen extends StatelessWidget {
     return Column(
       children: [
         Image.asset("assets/images/moshaf.png"),
-        Divider(color: MyThemeData.colorGold,thickness: 3,),
+        const Divider(color: MyThemeData.colorGold,thickness: 3,),
         Text("اسم السورة",style: Theme.of(context).textTheme.subtitle1,),
-        Divider(color: MyThemeData.colorGold,thickness: 3,),
+        const Divider(color: MyThemeData.colorGold,thickness: 3,),
         Expanded(
           child: ListView.separated(
               separatorBuilder: (context, index) {
-                return Divider(
+                return const Divider(
                   thickness: 1,
                   indent: 25,
                   endIndent: 25,
