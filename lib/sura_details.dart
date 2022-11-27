@@ -43,10 +43,12 @@ class _SuraDetailsState extends State<SuraDetails> {
             ),
                   itemCount: verse.length,
                   itemBuilder: (C, index) {
-                    return Text(
-                      verse[index],
-                      style: Theme.of(context).textTheme.bodyText1,
-                      textAlign: TextAlign.center,
+                    return Container(
+                      child: Text(
+                        verse[index],
+                        style: Theme.of(context).textTheme.bodyText1,
+                        textAlign: TextAlign.center,
+                      ),
                     );
                   }),
         ),
