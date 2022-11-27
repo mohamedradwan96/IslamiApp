@@ -17,7 +17,8 @@ class MyThemeData {
         fontWeight: FontWeight.bold,
         color: colorBlack,
       ),
-        subtitle1: TextStyle(color:colorGold,fontSize:24,fontWeight: FontWeight.bold)
+        subtitle1: TextStyle(color:colorGold,fontSize:24,fontWeight: FontWeight.bold),
+          bodyText1: TextStyle(color:colorBlack,fontSize:22,fontWeight: FontWeight.bold)
       ),
 
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
