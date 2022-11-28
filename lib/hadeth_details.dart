@@ -42,7 +42,7 @@ class HadethDetails extends StatelessWidget {
               itemBuilder: (_, index) {
                 return Text(
                   args.content[index],
-                  style: Theme.of(context).textTheme.subtitle1,
+                  style: Theme.of(context).textTheme.bodyText1,
                   textAlign: TextAlign.center,
                 );
               }),
