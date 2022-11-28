@@ -35,22 +35,26 @@ class _SuraDetailsState extends State<SuraDetails> {
           ),
           body: verse.isEmpty
               ? const Center(child: CircularProgressIndicator())
-              : ListView.separated(
-            separatorBuilder: (context, index) => const Divider(
-              color: MyThemeData.colorGold,
-              indent: 30,
-              endIndent: 30,
-            ),
-                  itemCount: verse.length,
-                  itemBuilder: (C, index) {
-                    return Container(
-                      child: Text(
-                        verse[index],
-                        style: Theme.of(context).textTheme.bodyText1,
-                        textAlign: TextAlign.center,
-                      ),
-                    );
-                  }),
+              : Container(
+            margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
+            decoration: BoxDecoration(
+                color: Colors.grey.shade300,
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    bottomRight: Radius.circular(25)),
+                border: Border.all(color: MyThemeData.colorGold, width: 2)),
+                child: ListView.builder(
+                    itemCount: verse.length,
+                    itemBuilder: (C, index) {
+                      return Container(
+                        child: Text(
+                          verse[index],
+                          style: Theme.of(context).textTheme.bodyText1,
+                          textAlign: TextAlign.center,
+                        ),
+                      );
+                    }),
+              ),
         ),
       ],
     );
