@@ -40,8 +40,8 @@ class _SuraDetailsState extends State<SuraDetails> {
             decoration: BoxDecoration(
                 color: Colors.grey.shade300,
                 borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    bottomRight: Radius.circular(25)),
+                    topLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20)),
                 border: Border.all(color: MyThemeData.colorGold, width: 2)),
                 child: ListView.builder(
                     itemCount: verse.length,
