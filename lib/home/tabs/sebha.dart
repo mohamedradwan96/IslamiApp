@@ -29,25 +29,37 @@ class _SebhaScreenState extends State<SebhaScreen> {
                   "assets/images/sebhabody.png",
                   width: 180,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Container(
-                  color: MyThemeData.colorGold,
+                  decoration: BoxDecoration(
+                    boxShadow: const [
+                      BoxShadow(
+                        offset: Offset(0.0, 0),
+                      ),
+                    ],
+                    border: Border.all(),
+                    borderRadius: BorderRadius.circular(30),
+                    color: MyThemeData.colorGold,
+                  ),
+                  height: 40,
                   child: DropdownButton(
+                    underline: const Divider(thickness: 0),
                     onTap: () {
                       setState(() {
                         counter = 0;
                       });
                     },
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(40),
+                        bottomRight: Radius.circular(40)),
                     dropdownColor: Colors.grey,
-                    hint: Text(
-                      "الاذكار",
-                    ),
-                    style: TextStyle(
+                    hint: const Text("الاذكار"),
+                    alignment: Alignment.center,
+                    style: const TextStyle(
                       fontSize: 24,
                     ),
-                    alignment: Alignment.center,
                     onChanged: (value) {
                       setState(() {
                         selected = value;
@@ -63,11 +75,12 @@ class _SebhaScreenState extends State<SebhaScreen> {
                       " الله اكبر"
                     ]
                         .map((e) => DropdownMenuItem(
+                              alignment: Alignment.center,
+                              value: e,
                               child: Text(
                                 "$e",
                                 style: Theme.of(context).textTheme.bodyText1,
                               ),
-                              value: e,
                             ))
                         .toList(),
                   ),
@@ -78,9 +91,9 @@ class _SebhaScreenState extends State<SebhaScreen> {
                 ),
                 Text(
                   "$counter",
-                  style: TextStyle(fontSize: 40),
+                  style: const TextStyle(fontSize: 40),
                 ),
-                SizedBox(height: 80),
+                const SizedBox(height: 80),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -91,13 +104,14 @@ class _SebhaScreenState extends State<SebhaScreen> {
                           });
                         },
                         style: ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll<Color>(
-                                MyThemeData.colorGold),
+                            backgroundColor:
+                                const MaterialStatePropertyAll<Color>(
+                                    MyThemeData.colorGold),
                             shape: MaterialStateProperty.all<
                                     RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)))),
-                        child: Text(
+                        child: const Text(
                           "تسبيح",
                           style: TextStyle(
                               color: MyThemeData.colorBlack, fontSize: 30),
@@ -116,8 +130,8 @@ class _SebhaScreenState extends State<SebhaScreen> {
                                     RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)))),
-                        icon: Icon(Icons.repeat, color: Colors.black),
-                        label: Text(
+                        icon: const Icon(Icons.repeat, color: Colors.black),
+                        label: const Text(
                           "إعادة",
                           style: TextStyle(
                               color: MyThemeData.colorBlack, fontSize: 30),
