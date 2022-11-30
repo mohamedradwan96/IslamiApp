@@ -25,18 +25,30 @@ class _SebhaScreenState extends State<SebhaScreen> {
           body: Center(
             child: Column(
               children: [
-                Image.asset(
-                  "assets/images/sebhabody.png",
-                  width: 180,
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/images/sebhabody.png",
+                      width: 180,
+                    ),
+                    Positioned(
+                      bottom:65,
+                      child: Text(
+                        "$counter",
+                        style: const TextStyle(fontSize: 40),
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 100,
                 ),
                 Container(
                   decoration: BoxDecoration(
                     boxShadow: const [
                       BoxShadow(
-                        offset: Offset(0.0, 0),
+                        offset: Offset(0.0,0),
                       ),
                     ],
                     border: Border.all(),
@@ -86,15 +98,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
                         .toList(),
                   ),
                 ),
-                Text(
-                  "عدد التسبيحات",
-                  style: Theme.of(context).textTheme.bodyText1,
-                ),
-                Text(
-                  "$counter",
-                  style: const TextStyle(fontSize: 40),
-                ),
-                const SizedBox(height: 80),
+                const SizedBox(height: 100),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -142,7 +146,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
               ],
             ),
           ),
-        )
+        ),
       ],
     );
   }
