@@ -45,7 +45,8 @@ class _SebhaScreenState extends State<SebhaScreen> {
                   ),
                   height: 40,
                   child: DropdownButton(
-                    underline: const Divider(thickness: 0),
+                    underline: const Divider(thickness:0,color: Colors.transparent,
+                    ),
                     onTap: () {
                       setState(() {
                         counter = 0;
