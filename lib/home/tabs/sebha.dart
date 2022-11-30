@@ -48,7 +48,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
                   decoration: BoxDecoration(
                     boxShadow: const [
                       BoxShadow(
-                        offset: Offset(0.0, 0),
+                        offset: Offset(0.0,0),
                       ),
                     ],
                     border: Border.all(),
