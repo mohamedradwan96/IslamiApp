@@ -51,7 +51,7 @@ class _AhadethScreenState extends State<AhadethScreen> {
                                 context, HadethDetails.routeName,
                                 arguments: ahadeth[index]);
                           },
-                          child: Text(ahadeth[index].title, style: Theme.of(context).textTheme.subtitle2,
+                          child: Text(ahadeth[index].title, style: Theme.of(context).textTheme.headline3,
                             textAlign: TextAlign.center,));
                     }),
               )

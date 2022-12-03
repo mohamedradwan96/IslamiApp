@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/mytheme.dart';
+import 'package:islami/provider/settings_providers.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetails extends StatefulWidget {
   static const String routName = "SuraDetails";
@@ -14,6 +16,7 @@ class _SuraDetailsState extends State<SuraDetails> {
 
   @override
   Widget build(BuildContext context) {
+    var settingsProvider = Provider.of<SettingsProviders>(context);
     var args = ModalRoute.of(context)?.settings.arguments as SuraDetailsArgs;
     if (verse.isEmpty) {
       loadFile(args.index);
@@ -21,7 +24,7 @@ class _SuraDetailsState extends State<SuraDetails> {
     return Stack(
       children: [
         Image.asset(
-          "assets/images/background.png",
+          settingsProvider.getmainBackground(),
           width: double.infinity,
           fit: BoxFit.fitWidth,
         ),
@@ -38,7 +41,7 @@ class _SuraDetailsState extends State<SuraDetails> {
               : Container(
             margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
             decoration: BoxDecoration(
-                color: Colors.grey.shade300,
+                color: Theme.of(context).backgroundColor,
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20)),

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:islami/mytheme.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/settings_providers.dart';
+
 
 class RadioScreen extends StatelessWidget {
   const RadioScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var settingsProvider = Provider.of<SettingsProviders>(context);
     return Stack(children: [
       Image.asset(
-        "assets/images/background.png",
+        settingsProvider.getmainBackground(),
         width: double.infinity,
         fit: BoxFit.fitWidth,
       ),
@@ -21,9 +25,9 @@ class RadioScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: const [
-                  Icon(Icons.skip_previous,color: MyThemeData.colorGold,size:60,),
-                  Icon(Icons.play_arrow,color: MyThemeData.colorGold,size:60,),
-                  Icon(Icons.skip_next,color: MyThemeData.colorGold,size:60,)
+                  Icon(Icons.skip_previous,size:60,),
+                  Icon(Icons.play_arrow,size:60,),
+                  Icon(Icons.skip_next,size:60,)
                 ],
               ),
             )

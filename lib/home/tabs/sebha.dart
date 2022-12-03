@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami/mytheme.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/settings_providers.dart';
 
 class SebhaScreen extends StatefulWidget {
   const SebhaScreen({Key? key}) : super(key: key);
@@ -14,11 +17,11 @@ class _SebhaScreenState extends State<SebhaScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var settingsProvider = Provider.of<SettingsProviders>(context);
     return Stack(
       children: [
         Image.asset(
-          "assets/images/background.png",
-          width: double.infinity,
+          settingsProvider.getmainBackground(),          width: double.infinity,
           fit: BoxFit.fitWidth,
         ),
         Scaffold(
@@ -33,10 +36,11 @@ class _SebhaScreenState extends State<SebhaScreen> {
                       width: 180,
                     ),
                     Positioned(
-                      bottom:65,
+                      bottom: 65,
                       child: Text(
                         "$counter",
-                        style: const TextStyle(fontSize: 40),
+                        style: Theme.of(context).textTheme.headline2,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ],
@@ -48,16 +52,18 @@ class _SebhaScreenState extends State<SebhaScreen> {
                   decoration: BoxDecoration(
                     boxShadow: const [
                       BoxShadow(
-                        offset: Offset(0.0,0),
+                        offset: Offset(0.0, 0),
                       ),
                     ],
-                    border: Border.all(),
+                    border: Border.all(color: MyThemeData.colorWhite),
                     borderRadius: BorderRadius.circular(30),
                     color: MyThemeData.colorGold,
                   ),
-                  height: 40,
+                  height: 50,
                   child: DropdownButton(
-                    underline: const Divider(thickness:0,color: Colors.transparent,
+                    underline: const Divider(
+                      thickness: 0,
+                      color: Colors.transparent,
                     ),
                     onTap: () {
                       setState(() {
@@ -67,12 +73,12 @@ class _SebhaScreenState extends State<SebhaScreen> {
                     borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(40),
                         bottomRight: Radius.circular(40)),
-                    dropdownColor: Colors.grey,
-                    hint: const Text("الاذكار"),
-                    alignment: Alignment.center,
-                    style: const TextStyle(
-                      fontSize: 24,
+                    dropdownColor: Theme.of(context).primaryColor,
+                    hint: Text(
+                      "الاذكار",
+                      style: Theme.of(context).textTheme.subtitle2,
                     ),
+                    alignment: Alignment.center,
                     onChanged: (value) {
                       setState(() {
                         selected = value;
@@ -109,17 +115,15 @@ class _SebhaScreenState extends State<SebhaScreen> {
                           });
                         },
                         style: ButtonStyle(
-                            backgroundColor:
-                                const MaterialStatePropertyAll<Color>(
-                                    MyThemeData.colorGold),
+                            backgroundColor: const MaterialStatePropertyAll<Color>(
+                                MyThemeData.colorGold),
                             shape: MaterialStateProperty.all<
                                     RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)))),
-                        child: const Text(
+                        child: Text(
                           "تسبيح",
-                          style: TextStyle(
-                              color: MyThemeData.colorBlack, fontSize: 30),
+                          style: Theme.of(context).textTheme.subtitle2,
                         )),
                     ElevatedButton.icon(
                         onPressed: () {
@@ -128,18 +132,17 @@ class _SebhaScreenState extends State<SebhaScreen> {
                           });
                         },
                         style: ButtonStyle(
-                            backgroundColor:
-                                const MaterialStatePropertyAll<Color>(
-                                    MyThemeData.colorGold),
+                            backgroundColor: const MaterialStatePropertyAll<Color>(
+                                MyThemeData.colorGold),
                             shape: MaterialStateProperty.all<
                                     RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)))),
-                        icon: const Icon(Icons.repeat, color: Colors.black),
-                        label: const Text(
+                        icon: const Icon(Icons.repeat,
+                            color: MyThemeData.colorWhite),
+                        label: Text(
                           "إعادة",
-                          style: TextStyle(
-                              color: MyThemeData.colorBlack, fontSize: 30),
+                          style: Theme.of(context).textTheme.subtitle2,
                         )),
                   ],
                 ),

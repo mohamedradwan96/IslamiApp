@@ -4,7 +4,9 @@ import 'package:islami/home/tabs/quran.dart';
 import 'package:islami/home/tabs/radio.dart';
 import 'package:islami/home/tabs/sebha.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import '../mytheme.dart';
+import 'package:islami/home/themeBottomSheet/theme_bottom_sheet.dart';
+import 'package:islami/provider/settings_providers.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "HomeScreen";
@@ -15,21 +17,41 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
+    var settingsProvider=Provider.of<SettingsProviders>(context);
     return Stack(
       children: [
         Image.asset(
-          "assets/images/background.png",
+          settingsProvider.getmainBackground(),
           width: double.infinity,
           fit: BoxFit.fitWidth,
         ),
         Scaffold(
           appBar: AppBar(
-            title: Text(AppLocalizations.of(context)!.appTitle,
-                style: Theme.of(context).textTheme.headline1),
+            title: Text(
+              AppLocalizations.of(context)!.appTitle,
+              style: Theme.of(context).textTheme.headline1,
+            ),
             centerTitle: true,
+            actions: [
+              const Icon(
+                Icons.language,
+                size: 30,
+              ),
+              const SizedBox(width: 10),
+              InkWell(
+                onTap: (){
+                  ShowThemeBottomSheet();
+                },
+                child: Container(
+                    margin: const EdgeInsets.only(right: 10),
+                    child: const Icon(
+                      Icons.dark_mode,
+                      size: 30,
+                    )),
+              )
+            ],
           ),
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
@@ -38,25 +60,23 @@ class _HomeScreenState extends State<HomeScreen> {
               setState(() {});
             },
             currentIndex: currentIndex,
-            items:[
+            items: [
               BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage('assets/images/quran.png')),
+                icon: const ImageIcon(AssetImage('assets/images/quran.png')),
                 label: AppLocalizations.of(context)!.quran,
               ),
               BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage('assets/images/sebha.png')),
-                label:AppLocalizations.of(context)!.sebha,
+                icon: const ImageIcon(AssetImage('assets/images/sebha.png')),
+                label: AppLocalizations.of(context)!.sebha,
               ),
               BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage('assets/images/ahadeth.png')),
-                label:AppLocalizations.of(context)!.ahadeth,
+                icon: const ImageIcon(AssetImage('assets/images/ahadeth.png')),
+                label: AppLocalizations.of(context)!.ahadeth,
               ),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/images/radio.png')),
-                  label: AppLocalizations.of(context)!.radio,
-                  ),
-
-
+                icon: const ImageIcon(AssetImage('assets/images/radio.png')),
+                label: AppLocalizations.of(context)!.radio,
+              ),
             ],
           ),
           body: tabs[currentIndex],
@@ -67,9 +87,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> tabs = [
     QuranScreen(),
-     SebhaScreen(),
-     AhadethScreen(),
+    SebhaScreen(),
+    AhadethScreen(),
     RadioScreen(),
-
   ];
+
+  void ShowThemeBottomSheet(){
+    showModalBottomSheet(context: context, builder: (buildcontext){
+      return ThemeeBottomSheet();
+
+    });
+
+
+  }
+
+
+
 }
