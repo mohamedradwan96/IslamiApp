@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:islami/mytheme.dart';
+import 'package:islami/AppTheme/mytheme.dart';
 import 'package:islami/provider/settings_providers.dart';
-import 'package:islami/sura_details.dart';
+import 'package:islami/home/Quran/sura_details.dart';
 import 'package:provider/provider.dart';
-import 'hadeth_details.dart';
-import 'home/homeScreen.dart';
+import 'home/Hadith/hadeth_details.dart';
+import 'home/Home/homeScreen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

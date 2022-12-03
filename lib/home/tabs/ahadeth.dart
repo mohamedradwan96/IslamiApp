@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami/mytheme.dart';
+import 'package:islami/AppTheme/mytheme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../hadeth_details.dart';
+import '../Hadith/hadeth_details.dart';
 
 class AhadethScreen extends StatefulWidget {
   @override

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:islami/provider/settings_providers.dart';
 import 'package:provider/provider.dart';
 
-import 'home/tabs/ahadeth.dart';
-import 'mytheme.dart';
+import '../tabs/ahadeth.dart';
+import '../../AppTheme/mytheme.dart';
 
 class HadethDetails extends StatelessWidget {
   static const String routeName = 'hadeth-details';

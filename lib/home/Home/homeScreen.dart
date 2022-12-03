@@ -4,7 +4,7 @@ import 'package:islami/home/tabs/quran.dart';
 import 'package:islami/home/tabs/radio.dart';
 import 'package:islami/home/tabs/sebha.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/home/themeBottomSheet/theme_bottom_sheet.dart';
+import 'package:islami/themeBottomSheet/theme_bottom_sheet.dart';
 import 'package:islami/languageBottomSheet/Language_bottom_sheet.dart';
 import 'package:islami/provider/settings_providers.dart';
 import 'package:provider/provider.dart';

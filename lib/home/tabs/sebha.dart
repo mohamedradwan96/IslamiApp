@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami/mytheme.dart';
+import 'package:islami/AppTheme/mytheme.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/settings_providers.dart';

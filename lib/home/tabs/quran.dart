@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:islami/home/sura_name_item.dart';
+import 'package:islami/home/Quran/sura_name_item.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
-import '../../mytheme.dart';
+import '../../AppTheme/mytheme.dart';
 
 class QuranScreen extends StatelessWidget {
   List<String> suraName = [
