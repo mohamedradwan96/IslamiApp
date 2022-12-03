@@ -1,11 +1,12 @@
 {
     "appTitle": "Islami",
-    "ahadeth": "Ahadeth",
+    "hadith": "Ahadeth",
     "quran": "Quran",
     "sebha": "Sebha",
     "radio": "Radio",
-    "sora_names": "Sora Name"
-
-
-
+    "sora_names": "Sora Name",
+    "english": "English",
+    "arabic": "Arabic",
+    "dark_theme":"Dark Mode",
+    "light_theme":"Light Mode"
 }

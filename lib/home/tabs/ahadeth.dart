@@ -26,7 +26,7 @@ class _AhadethScreenState extends State<AhadethScreen> {
           thickness: 3,
         ),
         Text(
-          AppLocalizations.of(context)!.ahadeth,
+          AppLocalizations.of(context)!.hadith,
           style: Theme.of(context).textTheme.subtitle1,
           textAlign: TextAlign.center,
         ),

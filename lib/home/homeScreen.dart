@@ -5,6 +5,7 @@ import 'package:islami/home/tabs/radio.dart';
 import 'package:islami/home/tabs/sebha.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home/themeBottomSheet/theme_bottom_sheet.dart';
+import 'package:islami/languageBottomSheet/Language_bottom_sheet.dart';
 import 'package:islami/provider/settings_providers.dart';
 import 'package:provider/provider.dart';
 
@@ -35,17 +36,22 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             centerTitle: true,
             actions: [
-              const Icon(
-                Icons.language,
-                size: 30,
-              ),
-              const SizedBox(width: 10),
               InkWell(
                 onTap: (){
-                  ShowThemeBottomSheet();
+                  showLangBottomSheet();
+                },
+                child:  Icon(
+                  Icons.language,
+                  size: 30,
+                ),
+              ),
+              const SizedBox(width: 5),
+              InkWell(
+                onTap: (){
+                  showThemeBottomSheet();
                 },
                 child: Container(
-                    margin: const EdgeInsets.only(right: 10),
+                    margin: const EdgeInsets.only(right: 10,left: 10),
                     child: const Icon(
                       Icons.dark_mode,
                       size: 30,
@@ -71,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               BottomNavigationBarItem(
                 icon: const ImageIcon(AssetImage('assets/images/ahadeth.png')),
-                label: AppLocalizations.of(context)!.ahadeth,
+                label: AppLocalizations.of(context)!.hadith,
               ),
               BottomNavigationBarItem(
                 icon: const ImageIcon(AssetImage('assets/images/radio.png')),
@@ -92,15 +98,20 @@ class _HomeScreenState extends State<HomeScreen> {
     RadioScreen(),
   ];
 
-  void ShowThemeBottomSheet(){
+  void showThemeBottomSheet(){
     showModalBottomSheet(context: context, builder: (buildcontext){
-      return ThemeeBottomSheet();
+      return const ThemeeBottomSheet();
 
     });
 
 
   }
 
+  void showLangBottomSheet(){
+    showModalBottomSheet(context: context, builder:(buildcontext){
 
+      return const LanguageBottomSheet();
+    });
+  }
 
 }

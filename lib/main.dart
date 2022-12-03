@@ -25,16 +25,20 @@ class IslamiApp extends StatelessWidget {
     var settingsProvider = Provider.of<SettingsProviders>(context);
 
     return MaterialApp(
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'),
         Locale('ar'),
       ],
+
+      locale:Locale(settingsProvider.currentLanguage),
+
+
       debugShowCheckedModeBanner: false,
       title: "Islam_App",
       initialRoute: HomeScreen.routeName,
